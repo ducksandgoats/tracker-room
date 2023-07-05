@@ -91,6 +91,8 @@ export class Room extends EventEmitter {
       }
 
       if(this.stayLimit || this.signalCount === 0){
+        this.sessions = this.maxLimit - this.signalCount
+
         const self = this
 
         await this.getArr(this.sessions, {initiator: true, trickle: false, config: {}})
