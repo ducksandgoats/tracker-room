@@ -23,11 +23,9 @@ export class Room extends EventEmitter {
       this.stayLimit = typeof(stayLimit) === 'boolean' ? stayLimit : false
       this.signalCount = 0
       this.sessions = 0
-      // this.loadsignals(null).then((count) => {this.emit('count', count)}).catch((err) => {this.emit('error', err)})
       this.recheck = opts.recheck || null
       this.recheckTimer = (opts.recheckTimer || 30) * 1000
       this.statusConnections().then((data) => {this.emit('count', data);}).catch((err) => {this.emit('error', err)})
-      // this.interval = setInterval(() => {this.loadSignals().then((count) => {this.emit('count', count)}).catch((err) => {this.emit('error', err)})}, this.timer)
     }
     async getArr(howMany, signalArgs){
       console.log('making ' + howMany + ' signals')
