@@ -26,7 +26,6 @@ export class Room extends EventEmitter {
       this.recheck = opts.recheck || null
       this.recheckTimer = (opts.recheckTimer || 30) * 1000
       this.statusConnections().then((data) => {this.emit('count', data);}).catch((err) => {this.emit('error', err)})
-      setInterval(() => {console.log(Object.keys(this.signals).length, Object.keys(this.offers).length)}, 3000)
     }
     async getArr(howMany, signalArgs){
       console.log('making ' + howMany + ' signals')
