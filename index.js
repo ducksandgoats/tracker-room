@@ -219,7 +219,7 @@ export class Room extends EventEmitter {
                       self.emit('close', peer.id)
   
                       if(peer.runFunc){
-                        this.statusConnections().then((data) => {this.emit('count', data);}).catch((err) => {this.emit('error', err)})
+                        self.statusConnections().then((data) => {this.emit('count', data);}).catch((err) => {this.emit('error', err)})
                       }
                     })
                     peer.signal(val.offer)
