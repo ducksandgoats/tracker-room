@@ -163,7 +163,7 @@ export class Room extends EventEmitter {
                   if (val.offer) {
                     if(self.signalCount >= self.maxLimit){
                       if(Object.keys(self.offers).length){
-                        const testProp = (() => {const testArr = self.shuffle(Object.keys(self.offers));return testArr[Math.floor(Math.random() * testArr.length)];})()
+                        const testProp = (() => {const testArr = self.shuffle(Object.keys(self.offers));const i = testArr.indexOf(val.offer);if(i !== -1){testArr.splice(i, 1)};return testArr[Math.floor(Math.random() * testArr.length)];})()
                         self.offers[testProp].peer.runFunc = false
                         self.offers[testProp].peer.destroy()
                       } else {
@@ -231,9 +231,9 @@ export class Room extends EventEmitter {
                     if(!self.offers[val.offer_id]){
                       return
                     }
-                    if(self.signalCount >= self.maxLimit){
+                    if(self.signalCount > self.maxLimit){
                       if(Object.keys(self.offers).length){
-                        const testProp = (() => {const testArr = self.shuffle(Object.keys(self.offers));return testArr[Math.floor(Math.random() * testArr.length)];})()
+                        const testProp = (() => {const testArr = self.shuffle(Object.keys(self.offers));const i = testArr.indexOf(val.offer);if(i !== -1){testArr.splice(i, 1)};return testArr[Math.floor(Math.random() * testArr.length)];})()
                         self.offers[testProp].peer.runFunc = false
                         self.offers[testProp].peer.destroy()
                       } else {
