@@ -100,7 +100,7 @@ export class Room extends EventEmitter {
         for(const url of this.trackerUrls){
           let socketUrl = this.sockets[url]
           if(!socketUrl){
-            socketUrl = new WebSocket(url)
+            socketUrl = new WebSocket(url + '/' + this.hash)
             try {
               await new Promise((res, rej) => {
                 socketUrl.onopen = function(e){
