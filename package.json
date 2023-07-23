@@ -1,13 +1,13 @@
 {
   "dependencies": {
     "buffer": "^6.0.3",
-    "crypto-js": "^4.1.2",
+    "crypto-js": "^4.1.1",
     "events": "^3.3.0",
     "nanoid": "^4.0.2",
     "uint8-util": "^2.1.9"
   },
   "name": "tracker-room",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
